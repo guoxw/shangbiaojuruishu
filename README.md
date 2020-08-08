@@ -1,44 +1,25 @@
 # shangbiaojuruishu
-商标局瑞数绕过与爬取分析
+## 商标局瑞数绕过与反爬学习
+---
 
-贴逆向好的js代码..剩下靠你们自己了
+* 贴逆向好的js代码..剩下靠你们自己了
 
-需要返回cookie,否则无限跳转,下面是nginx静态服务配置
+* 需要返回cookie,否则无限跳转,文件夹中带有nginx静态服务配置
 
-	# nginx配置
-	server {
-        listen       801;
-        server_name  wcjs.sbj.cnipa.gov.cn;
+---
 
-		
-		
-        #charset koi8-r;
+### 增加2020年7月30号的逆向学习代码
+* 1.对代码格式
+* 2.处理控制流平坦化,减少对键盘伤害
+* 3.对加密方法名解密,减少对鼠标伤害
+* 4.删除无限debugger
 
-        #access_log  logs/host.access.log  main;
-		
-		
-		# 自定义的静态文件
-		location ~ ^/111/ {
-            root html/wcjs.sbj.cnipa.gov.cn/;
+#### 备注:index.html为原始页面代码,index2.html为处理后页面代码,eval.js为格式化后的evaljs代码,eval2.js为处理后代码
 
-        }
-		
-		location  = / {
-			root html/wcjs.sbj.cnipa.gov.cn/;
-			index index.html;
-			
-			add_header 'Set-Cookie' 'o3KxeTTl0htJS=50uYHOItIb7oIqbA5HfPI8hMnrkQF.ubLhW13hxZ7hdAVpuhE8u14AoVYz1IV1t2VT387YEm.gtbKyFNwlNVacA; Path=/; expires=Sat, 13 Apr 2030 08:01:56 GMT; HttpOnly';
-			add_header 'Set-Cookie' '__jsluid_h=ec57e7f8c18fce25ac47b018753c92ae; max-age=31536000; path=/; HttpOnly';
-			
-        }
-		
-		location / {
-			root html/wcjs.sbj.cnipa.gov.cn/;
-			index index.html;
-			
-        }
-	}
+#### 快速阅读:
+* index2.html 搜索call快速找到eval的入口
+* eval2.js	搜索"_$$a[0]"这里是控制流平坦化代码的开始,搜索"_$WH(24)"这里是设置无限debugger,很多个
 
-
+---
 
 2605326000@qq.com
